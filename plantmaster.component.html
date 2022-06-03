@@ -1,0 +1,126 @@
+<!-- 
+ <div class="container">
+    <table mat-table matSort [dataSource]="plantmodel" class="mat-elevation-z0">
+        <ng-container matColumnDef="plantid">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef>Plant ID</th>
+            <td mat-cell *matCellDef="let plantmodel of plantmodel"> {{plantmodel.plantid}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="plantname">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef>Plant name </th>
+            <td mat-cell *matCellDef="let plantmodel of plantmodel"> {{plantmodel.plantname}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="plantshortdesc">
+            <th mat-header-cell *matHeaderCellDef> Plant Desc </th>
+            <td mat-cell *matCellDef="let plantmodel of plantmodel"> {{plantmodel.plantshortdesc}} </td>
+          </ng-container>
+          <ng-container matColumnDef="actived">
+            <th mat-header-cell *matHeaderCellDef>Active</th>
+            <td mat-cell *matCellDef="let plantmodel of plantmodel"> {{plantmodel.status.actived}} </td>
+          </ng-container> 
+          <ng-container matColumnDef="archived">
+            <th mat-header-cell *matHeaderCellDef>Archive</th>
+            <td mat-cell *matCellDef="let plantmodel of plantmodel"> {{plantmodel.status.archived}} </td>
+          </ng-container> 
+          <ng-container matColumnDef="deleted">
+            <th mat-header-cell *matHeaderCellDef>Deleted</th>
+            <td mat-cell *matCellDef="let plantmodel of plantmodel "> {{plantmodel.status.deleted}} </td>
+          </ng-container>  
+         <!--  <ng-container matColumnDef="companyname">
+            <th mat-header-cell *matHeaderCellDef>CompanyName</th>
+            <td mat-cell *matCellDef="let plantmodel of plantmodel "> {{plantmodel.Companymodel.companyname}} </td>
+          </ng-container>   -->
+     <!--      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> 
+        </table>
+        <mat-paginator #paginator [pageSize]="25" [pageSizeOptions]="[10,20, 30, 40, 50]">
+        </mat-paginator>
+      
+      </div> --> 
+    
+        <!--  <button  mat-icon-button  (click)="savePlant()">
+        <i class="fa fa-plus" ></i>
+        </button>  -->
+      
+        <ul class="nav-item">
+          <a class="nav-link" href="http://localhost:4200/addplant"><i class="fa fa-plus" style="color:green"></i></a>
+        </ul>
+        <ul class="nav-item">
+          <a class="nav-link" href="http://localhost:4200/updateplant"><i class="fa fa-pencil" style="color:green"></i></a>
+        </ul>
+   
+   
+        <table mat-table matSort [dataSource]="plantmodel" class="mat-elevation-z0">
+        
+          <ng-container matColumnDef="plantid">
+            <mat-header-cell *matHeaderCellDef>Plant ID</mat-header-cell>
+            <mat-cell *matCellDef="let plantmodel"> {{plantmodel.plantid}} </mat-cell>
+          </ng-container>
+      
+      
+          <ng-container matColumnDef="plantname">
+            <mat-header-cell *matHeaderCellDef>Plant Name </mat-header-cell>
+            <mat-cell *matCellDef="let plantmodel">
+              <mat-form-field floatLabel="never">
+                <input matInput placeholder="Name" [value]="plantmodel.plantname" [(ngModel)]="plantmodel.plantname">
+              </mat-form-field>
+            </mat-cell>
+          </ng-container>
+      
+         <ng-container matColumnDef="plantshortdesc">
+            <mat-header-cell *matHeaderCellDef>Plant Short Desc</mat-header-cell>
+            <mat-cell *matCellDef="let plantmodel ">
+              <mat-form-field floatLabel="never">
+                <input matInput placeholder="Desc" [value]="plantmodel.plantshortdesc" [(ngModel)]="plantmodel.plantshortdesc">
+              </mat-form-field>
+            </mat-cell>
+
+            
+           
+            <ng-container matColumnDef="actived">
+              <mat-header-cell *matHeaderCellDef>Active</mat-header-cell>
+              <mat-cell *matCellDef="let plantmodel ">
+                <mat-form-field floatLabel="never">
+                  <input matInput placeholder="Desc" [value]="plantmodel.status.actived" [(ngModel)]="plantmodel.status.actived">
+                </mat-form-field>
+              </mat-cell>
+
+
+              <ng-container matColumnDef="archived">
+                <mat-header-cell *matHeaderCellDef>Archive</mat-header-cell>
+                <mat-cell *matCellDef="let plantmodel ">
+                  <mat-form-field floatLabel="never">
+                    <input matInput placeholder="Desc" [value]="plantmodel.status.archived" [(ngModel)]="plantmodel.status.archived">
+                  </mat-form-field>
+                </mat-cell>
+
+                <ng-container matColumnDef="deleted">
+                  <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
+                  <mat-cell *matCellDef="let plantmodel ">
+                    <mat-form-field floatLabel="never">
+                      <input matInput placeholder="Desc" [value]="plantmodel.status.deleted" [(ngModel)]="plantmodel.status.deleted">
+                    </mat-form-field>
+                  </mat-cell> 
+
+                    <ng-container matColumnDef="action">
+                    <mat-header-cell *matHeaderCellDef>Delete Plant</mat-header-cell>
+                    <mat-cell *matCellDef="let plantmodel ;  let plantid = index;"> 
+                       <button mat-icon-button  (click)="deleteplant(plantid)">
+                       <i class="fa fa-times" ></i>
+                       </button>
+                       </mat-cell>
+                       
+                       
+             <!--  <ng-container matColumnDef="companyname">
+                <mat-header-cell *matHeaderCellDef>CompanyName</mat-header-cell>
+                <mat-cell *matCellDef="let plantmodel ">
+                  <mat-form-field floatLabel="never">
+                    <input matInput placeholder="Desc" [value]="company.companyname" [(ngModel)]="company.companyname">
+                  </mat-form-field>
+                </mat-cell> -->
+
+                      
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      

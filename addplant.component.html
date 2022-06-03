@@ -1,0 +1,38 @@
+<div class="col-md-3 offset-md-2">
+    <form (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group">
+            <label>Plant Name</label>
+            <input type="text" class ="form-control" id = "plantname"
+                [(ngModel)] =  "plant.plantname" name = "plantname" n>
+              
+        </div>
+        <div class="form-group">
+            <label>Plant Short Desc</label>
+            <input type="text" class ="form-control" id = "plantshortdesc" 
+                [(ngModel)] = "plant.plantshortdesc" name = "plantshortdesc">  
+                 </div>
+                 
+                 <div class="form-group">
+                    <label>Active</label>
+                    <input type="text" class ="form-control" id = "actived" 
+                        [(ngModel)] = "plant.status.actived" name = "actived">  
+                         </div>
+
+                         <div class="form-group">
+                            <label>Archived</label>
+                            <input type="text" class ="form-control" id = "archived" 
+                                [(ngModel)] = "plant.status.archived" name = "archived">  
+                                 </div>
+
+                                 <div class="form-group">
+                                    <label>Deleted</label>
+                                    <input type="text" class ="form-control" id = "deleted" 
+                                        [(ngModel)] = "plant.status.deleted" name = "deleted">  
+                                         </div>
+        <div></div> 
+        <div></div>    
+        <button class = "btn btn-primary" type ="submit">Save</button>
+      </form>
+      </div>   
+      
